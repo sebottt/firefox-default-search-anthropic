@@ -1,0 +1,89 @@
+{
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "path": "rules.json",
+        "enabled": false,
+        "id": "bypass_rules"
+      }
+    ]
+  },
+  "browser_specific_settings": {
+    "gecko_android": {
+      "strict_min_version": "109.0"
+    },
+    "gecko": {
+      "strict_min_version": "106.0",
+      "id": "{2dcb0f8a-f9de-4b46-899b-e11f8efc92f4}",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "description": "Set Claude as the default search engine (on install prompt), omnibox keyword claude, selection menus, and optional redirect toggle for claude.ai links.",
+  "default_locale": "en",
+  "icons": {
+    "128": "icons/icon128.png",
+    "48": "icons/icon48.png",
+    "16": "icons/icon16.png"
+  },
+  "host_permissions": [
+    "https://claude.ai/*",
+    "*://*/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "version": "2.1.9",
+  "omnibox": {
+    "keyword": "claude"
+  },
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "Claude Search",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "48": "icons/icon48.png",
+      "16": "icons/icon16.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "contextMenus",
+    "tabs",
+    "clipboardWrite"
+  ],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "search_url": "https://claude.ai/new?q={searchTerms}",
+      "name": "Claude",
+      "keyword": "claude.ai",
+      "encoding": "UTF-8",
+      "is_default": true,
+      "favicon_url": "icons/icon48.png"
+    }
+  },
+  "name": "Claude Search"
+}
