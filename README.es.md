@@ -10,7 +10,7 @@ se entrega a quien la instale.
 El código malicioso no estaba presente en el momento de la instalación. Llegó por actualización
 automática doce días después de una instalación limpia. Las reseñas previas de la ficha señalan que
 la extensión no es oficial y que suplanta a Anthropic, pero ninguna publicación describe el
-comportamiento que se documenta aquí.
+comportamiento que se documenta.
 
 Este repositorio contiene el análisis, los indicadores y la muestra.
 

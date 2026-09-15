@@ -1,0 +1,6 @@
+# The sample is third-party code, not this repository's source.
+samples/** linguist-vendored
+
+# This repository is documentation; let the language bar say so.
+*.md linguist-detectable=true
+*.md linguist-documentation=false
